@@ -15,6 +15,9 @@ public class Practice1 {
 		PrintA();
 	}
 
+// Khởi tạo mảng tự điền (Arrays init)
+//	 float[] arrays = { 3.2f, 4.5f, 3.1f };
+
 // 	Viết phương thức in ra mảng
 	public void PrintA() {
 		for (int i = 0; i < a.length; i++) {
@@ -66,12 +69,43 @@ public class Practice1 {
 
 	}
 
+//		In tổng A
+	public void sumTotal() {
+		float sumtotal = 0;
+		for (int i = 0; i < a.length; i++) {
+			sumtotal += a[i];
+		}
+		System.out.println("Tong la: " + sumtotal);
+	}
+
+//		Tìm giá trị nhỏ nhất trong mảng
+	public void searchMin() {
+		float min = a[0];
+		for (int i = 0; i < a.length; i++) {
+			if (min > a[i]) {
+				min = a[i];
+			}
+		}
+		System.out.println("so be nhat la " + min);
+	}
+
+// In ra giá trị ngẫu nhiên trong mảng
+	public void randomArrays() {
+		Random r = new Random();
+		int index = r.nextInt(a.length);
+		System.out.println("Giá trị ngẫu nhiên trong mảng a[" + index + "] là: " + a[index]);
+
+	}
+
 	public static void main(String[] args) {
 		Practice1 b = new Practice1();
 		System.out.println("\nsau khi add ");
 		b.addX(1.5f);
 		b.PrintA();
-
 		b.sum2FirstElements();
+		b.sumTotal();
+		b.searchMin();
+		b.randomArrays();
+
 	}
 }
