@@ -24,14 +24,15 @@ public class Matrix {
 	}
 
 	public void PrintMatrix(int[][] matrix) {
-		System.out.println("Maxtrix: \n----------");
+		System.out.println("Maxtrix: ");
 		for (int i = 0; i < matrix.length; i++) {
 			System.out.println();
 			for (int j = 0; j < matrix[0].length; j++) {
 				System.out.print(matrix[i][j] + " ");
 			}
 		}
-		System.out.println();
+
+		System.out.println("\n----------");
 	}
 
 	public void PrintA() {
@@ -42,10 +43,40 @@ public class Matrix {
 		PrintMatrix(matrixB);
 	}
 
+	public int[][] sumMatrix() {
+		int[][] matrixsum = new int[n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				matrixsum[i][j] = matrixA[i][j] + matrixB[i][j];
+			}
+		}
+		return matrixsum;
+	}
+
+	public int[][] multiplyMatrix() {
+		int[][] matrixmultiply = new int[n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				matrixmultiply[i][j] = 0;
+				for (int k = 0; k < n; k++) {
+					matrixmultiply[i][j] += matrixA[i][k] * matrixB[k][j];
+				}
+
+			}
+
+		}
+		return matrixmultiply;
+	}
+
 	public static void main(String[] args) {
-		Matrix b = new Matrix(5);
+		Matrix b = new Matrix(3);
 		b.PrintA();
 		b.PrintB();
+		System.out.println("A + B = ");
+		b.PrintMatrix(b.sumMatrix());
+		System.out.println("A * B= ");
+		b.PrintMatrix(b.multiplyMatrix());
+
 	}
 
 }
