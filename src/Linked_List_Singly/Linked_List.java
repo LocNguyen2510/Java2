@@ -15,6 +15,7 @@ public class Linked_List<T> {
 		}
 	}
 
+//Thêm node vào đầu danh sách
 	public void addFirst(T item) {
 //		Node<T> newNode = new Node<>(item, this.head); cách 1
 //		cách2
@@ -22,5 +23,19 @@ public class Linked_List<T> {
 		newNode.setData(item);
 		newNode.setNext(this.head);
 		this.head = newNode;
+	}
+
+//	Thêm node vào cuối danh sách
+	public void addLast(T item) {
+		if (head == null) {
+			addFirst(item);
+		} else {
+			Node1<T> newNode = new Node1<>(item, null);
+			Node1<T> tmp = head;
+			while (tmp.getNext() != null) {
+				tmp = tmp.getNext();
+			}
+			tmp.setNext(newNode);
+		}
 	}
 }

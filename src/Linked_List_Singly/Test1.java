@@ -6,6 +6,9 @@ public class Test1 {
 		ll.addFirst("Nguyen Dinh Loc");
 		ll.addFirst("Nguyen Dinh Minh");
 		ll.addFirst("Nguyen Dinh Sang");
+//		ll.traverse();
+		System.out.println("Sau khi add");
+		ll.addLast("Nguyen Minh Manh");
 		ll.traverse();
 	}
 }
