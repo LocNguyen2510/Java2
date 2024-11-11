@@ -21,6 +21,8 @@ public class Linked_List<T> {
 	}
 
 	public void addFirstList(T item) {
+		Node<T> newNode = new Node<>(item, head);
+		this.head = newNode;
 
 	}
 }
