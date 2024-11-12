@@ -23,6 +23,18 @@ public class Linked_List<T> {
 	public void addFirstList(T item) {
 		Node<T> newNode = new Node<>(item, head);
 		this.head = newNode;
+	}
 
+	public void addLastList(T item) {
+		if (head == null) {
+			addFirstList(item);
+		} else {
+			Node<T> newNode = new Node<>(item, null);
+			Node<T> tmp = head;
+			while (tmp.getNext() != null) {
+				tmp = tmp.getNext();
+			}
+			tmp.setNext(newNode);
+		}
 	}
 }

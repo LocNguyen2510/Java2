@@ -8,5 +8,8 @@ public class Test {
 		lls.addFirstList("Tran Dinh Long");
 		lls.addFirstList("Nguyen Minh Loc");
 		lls.traverse();
+		System.out.println("\nSau khi add last: ");
+		lls.addLastList("Trinh Dinh Quang");
+		lls.traverse();
 	}
 }
