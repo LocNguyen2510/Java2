@@ -11,5 +11,8 @@ public class Test {
 		System.out.println("\nSau khi add last: ");
 		lls.addLastList("Trinh Dinh Quang");
 		lls.traverse();
+		System.out.println("Sau khi xóa");
+		lls.removeList("Nguyen Minh Loc");
+		lls.traverse();
 	}
 }

@@ -37,4 +37,22 @@ public class Linked_List<T> {
 			tmp.setNext(newNode);
 		}
 	}
+
+	public void removeList(T key) {
+		if (head.getData().equals(key)) {
+			this.head = head.getNext();
+			return;
+		}
+		Node<T> prev = null;
+		Node<T> curr = head;
+		while (curr != null && !curr.getData().equals(key)) {
+			prev = curr;
+			curr.getNext();
+		}
+		if (curr == null) {
+			throw new RuntimeException("No value! Can't delete");
+		}
+		prev.setNext(curr.getNext());
+
+	}
 }
