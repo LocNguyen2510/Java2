@@ -1,25 +1,17 @@
 package Linked_List_QLiSinhVien;
 
 public class Linked_List<T> {
-	private Node1<T> head;
+	private Node<T> head;
 
 	public Linked_List() {
 		this.head = null;
-	}
-
-	public void traverse() {
-		Node1<T> tmp = head;
-		while (tmp != null) {
-			System.out.println(tmp.getData());
-			tmp = tmp.getNext();
-		}
 	}
 
 //Thêm node vào đầu danh sách
 	public void addFirst(T item) {
 //		Node<T> newNode = new Node<>(item, this.head); cách 1
 //		cách2
-		Node1<T> newNode = new Node1<>();
+		Node<T> newNode = new Node<>();
 		newNode.setData(item);
 		newNode.setNext(this.head);
 		this.head = newNode;
@@ -30,8 +22,8 @@ public class Linked_List<T> {
 		if (head == null) {
 			addFirst(item);
 		} else {
-			Node1<T> newNode = new Node1<>(item, null);
-			Node1<T> tmp = head;
+			Node<T> newNode = new Node<>(item, null);
+			Node<T> tmp = head;
 			while (tmp.getNext() != null) {
 				tmp = tmp.getNext();
 			}
@@ -41,19 +33,27 @@ public class Linked_List<T> {
 
 	public void insertAfter(T key, T toInsert) {
 
-		Node1<T> tmp = head;
+		Node<T> tmp = head;
 
 		while (tmp != null && tmp.getData().equals(key)) {
 			tmp = tmp.getNext();
 		}
 		if (tmp != null) {
 //			cách 1
-//			Node1<T> newNode1 = new Node1<>();
-//			newNode.setData(toInsert);
-//			newNode.setNext(tmp.getNext());
+			Node<T> newNode = new Node<>();
+			newNode.setData(toInsert);
+			newNode.setNext(tmp.getNext());
 //			cách 2
-			Node1<T> newNode = new Node1<>(toInsert, tmp.getNext());
+//			Node<T> newNode = new Node<>(toInsert, tmp.getNext());
 			tmp.setNext(newNode);
+		}
+	}
+
+	public void print() {
+		Node<T> tmp = head;
+		while (tmp != null) {
+			System.out.println(tmp.getData());
+			tmp = tmp.getNext();
 		}
 	}
 
@@ -65,8 +65,8 @@ public class Linked_List<T> {
 			this.head = head.getNext();
 			return true;
 		}
-		Node1<T> prep = null;
-		Node1<T> cur = head;
+		Node<T> prep = null;
+		Node<T> cur = head;
 		while (cur != null && !cur.getData().equals(key)) {
 			prep = cur;
 			cur = cur.getNext();
@@ -84,7 +84,7 @@ public class Linked_List<T> {
 
 	public int size() {
 		int count = 0;
-		Node1<T> tmp = head;
+		Node<T> tmp = head;
 		while (tmp != null) {
 			count++;
 			System.out.println(tmp.getData());

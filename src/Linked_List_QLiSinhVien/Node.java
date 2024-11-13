@@ -1,10 +1,10 @@
 package Linked_List_QLiSinhVien;
 
-public class Node1<T> {
+public class Node<T> {
 	private T data;
-	private Node1<T> next;
+	private Node<T> next;
 
-	public Node1() {
+	public Node() {
 
 	}
 
@@ -16,15 +16,15 @@ public class Node1<T> {
 		this.data = data;
 	}
 
-	public Node1<T> getNext() {
+	public Node<T> getNext() {
 		return next;
 	}
 
-	public void setNext(Node1<T> next) {
+	public void setNext(Node<T> next) {
 		this.next = next;
 	}
 
-	public Node1(T data, Node1<T> next) {
+	public Node(T data, Node<T> next) {
 		this.data = data;
 		this.next = next;
 	}
