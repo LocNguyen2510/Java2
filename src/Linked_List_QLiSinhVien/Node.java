@@ -5,7 +5,11 @@ public class Node<T> {
 	private Node<T> next;
 
 	public Node() {
+	}
 
+	public Node(T data, Node<T> next) {
+		this.data = data;
+		this.next = next;
 	}
 
 	public T getData() {
@@ -21,11 +25,6 @@ public class Node<T> {
 	}
 
 	public void setNext(Node<T> next) {
-		this.next = next;
-	}
-
-	public Node(T data, Node<T> next) {
-		this.data = data;
 		this.next = next;
 	}
 }

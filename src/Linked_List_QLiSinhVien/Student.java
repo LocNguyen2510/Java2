@@ -4,17 +4,16 @@ import java.util.Objects;
 
 public class Student {
 	private String id;
-	private String name;
+	private String fullName;
 	private int age;
 	private float gpa;
 
 	public Student() {
-
 	}
 
-	public Student(String id, String name, int age, float gpa) {
+	public Student(String id, String fullName, int age, float gpa) {
 		this.id = id;
-		this.name = name;
+		this.fullName = fullName;
 		this.age = age;
 		this.gpa = gpa;
 	}
@@ -27,39 +26,16 @@ public class Student {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", gpa=" + gpa + "]";
+	public String getFullName() {
+		return fullName;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public int getAge() {
 		return age;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(age, gpa, id, name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Student other = (Student) obj;
-		return age == other.age && Float.floatToIntBits(gpa) == Float.floatToIntBits(other.gpa)
-				&& Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
 
 	public void setAge(int age) {
@@ -74,4 +50,25 @@ public class Student {
 		this.gpa = gpa;
 	}
 
+	@Override
+	public String toString() {
+		return "Student{" + "id='" + id + '\'' + ", fullName='" + fullName + '\'' + ", age=" + age + ", gpa=" + gpa
+				+ '}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Student student = (Student) o;
+		return age == student.age && Float.compare(gpa, student.gpa) == 0 && Objects.equals(id, student.id)
+				&& Objects.equals(fullName, student.fullName);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, fullName, age, gpa);
+	}
 }
