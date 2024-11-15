@@ -31,4 +31,22 @@ public class StudentMS {
 			tmp = tmp.getNext();
 		}
 	}
+
+	public void remove(Student student) {
+		this.list.remove(student);
+	}
+
+	public int countStudent(String fullName) {
+		int count = 0;
+		Node<Student> tmp = list.getHead();
+		while (tmp != null) {
+			Student st = tmp.getData();
+			if (st.getFullName().equals(fullName)) {
+				count++;
+			}
+			tmp = tmp.getNext();
+		}
+		return count;
+	}
+
 }
