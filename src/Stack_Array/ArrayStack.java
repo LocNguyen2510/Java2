@@ -20,33 +20,38 @@ public class ArrayStack<T> implements StackADT<T> {
 		stack = (T[]) (new Object[DEAFAULT_CAPACITY]);
 	}
 
+	private void expandCapacity() {
+//		tạo ra mảng mới với kích thước gấp đôi
+		T[] newStack = (T[]) (new Object[stack.length * 2]);
+//		copy dữ liệu từ mảng cũ sang mảng mới
+		for (int i = 0; i < newStack.length; i++) {
+			newStack[i] = stack[i];
+		}
+	}
+
 	@Override
 	public void push(Object element) {
-		// TODO Auto-generated method stub
-
+		if (size() == stack.length)
+			expandCapacity(); // mở rộng kích thước của mảng ngăn xếp
 	}
 
 	@Override
 	public Object pop() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Object peek() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		return this.top == 0;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
 		return this.top;
 	}
 
