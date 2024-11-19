@@ -1,5 +1,7 @@
 package Stack_Array;
 
+import java.util.EmptyStackException;
+
 public class ArrayStack<T> implements StackADT<T> {
 //	top:Biết số lượng phần tử trong stack cũng như vị trí tiếp theo
 	private int top;
@@ -30,19 +32,30 @@ public class ArrayStack<T> implements StackADT<T> {
 	}
 
 	@Override
-	public void push(Object element) {
+	public void push(T element) {
 		if (size() == stack.length)
 			expandCapacity(); // mở rộng kích thước của mảng ngăn xếp
+		stack[top] = element; // Đưa phần tử vào đỉnh của stack
+		top++; // top++=top+1 tăng chỉ số đỉnh của stack lên 1
 	}
 
 	@Override
-	public Object pop() {
-		return null;
+	public T pop() throws EmptyStackException {
+		if (isEmpty())
+			throw new EmptyStackException();// ngoại lệ nếu stack rỗng
+		top--;// giảm chỉ số của đỉnh stack 1 đơn vị
+		T result = stack[top]; // lấy phần tử của stack
+		stack[top] = null;// xoá phần tử khỏi stack
+		return result;// trả về phần tử
 	}
 
 	@Override
-	public Object peek() {
-		return null;
+	public T peek() {
+		if (isEmpty())
+			throw new EmptyStackException();// ngoại lệ nếu stack rỗng
+
+		return stack[top - 1];// trả về phần tử
+
 	}
 
 	@Override
