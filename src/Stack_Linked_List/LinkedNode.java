@@ -1,10 +1,10 @@
 package Stack_Linked_List;
 
-public class Node1<T> {
+public class LinkedNode<T> {
 	private T data;
-	private Node1<T> next;
+	private LinkedNode<T> next;
 
-	public Node1() {
+	public LinkedNode() {
 
 	}
 
@@ -16,15 +16,15 @@ public class Node1<T> {
 		this.data = data;
 	}
 
-	public Node1<T> getNext() {
+	public LinkedNode<T> getNext() {
 		return next;
 	}
 
-	public void setNext(Node1<T> next) {
+	public void setNext(LinkedNode<T> next) {
 		this.next = next;
 	}
 
-	public Node1(T data, Node1<T> next) {
+	public LinkedNode(T data, LinkedNode<T> next) {
 		this.data = data;
 		this.next = next;
 	}
