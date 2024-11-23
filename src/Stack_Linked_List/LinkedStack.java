@@ -7,12 +7,14 @@ public class LinkedStack<T> implements StackADT<T> {
 	public LinkedStack() {
 		count = 0;
 		top = null;
+		count++;
 	}
 
 	@Override
 	public void push(T element) {
 		// TODO Auto-generated method stub
-		LinkedNode<T> temp = new LinkedNode<>(element, null);
+		LinkedNode<T> temp = new LinkedNode<>(element, top);
+		top = temp;
 	}
 
 	@Override
@@ -36,7 +38,7 @@ public class LinkedStack<T> implements StackADT<T> {
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return count;
 	}
 
 }
