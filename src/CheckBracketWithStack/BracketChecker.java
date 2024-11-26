@@ -14,6 +14,10 @@ public class BracketChecker {
 				if (stack.isEmpty()) {
 					return false;
 				}
+//				tình huống thứ 2: Đóng ngoặc ], }, )
+//				Kiểm tra stack có rỗng hay không. nếu rỗng là sai 
+//				nếu không rỗng => lấy kí tự ở đỉnh stack =>  nếu kí tự ở đỉnh stack giống với kí tự hiện tại => true 
+//				còn ngược lại sẽ là false
 				char top = stack.pop();
 				if (ch == '}' && top != '{' || ch == ']' && top != '[' || ch == ')' && top != '(') {
 					return false;
@@ -21,9 +25,6 @@ public class BracketChecker {
 			}
 		}
 		return stack.isEmpty();
-//		tình huống thứ 2: Đóng ngoặc ], }, )
-//		Kiểm tra stack có rỗng hay không. nếu rỗng là sai 
-//		nếu không rỗng => lấy kí tự ở đỉnh stack =>  nếu kí tự ở đỉnh stack giống với kí tự hiện tại => true 
-//		còn ngược lại sẽ là false
+//		
 	}
 }
