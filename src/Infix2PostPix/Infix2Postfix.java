@@ -16,4 +16,7 @@ public class Infix2Postfix {
 		return -1;
 	}
 
+	public static String infix2postfix(String expression) {
+		expression = expression.replace(' ', ' ');
+	}
 }
