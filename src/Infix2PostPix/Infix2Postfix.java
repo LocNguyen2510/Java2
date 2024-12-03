@@ -26,6 +26,11 @@ public class Infix2Postfix {
 		Stack<Character> stack = new Stack<Character>();
 		for (int i = 0; i < expression.length(); i++) {
 			char c = expression.charAt(i);
+			if (Character.isDigit(c)) {
+				result += c;
+			} else {
+
+			}
 		}
 	}
 }
