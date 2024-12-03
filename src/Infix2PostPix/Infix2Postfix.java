@@ -28,9 +28,17 @@ public class Infix2Postfix {
 			char c = expression.charAt(i);
 			if (Character.isDigit(c)) {
 				result += c;
-			} else {
-
+//				nếu gặp dấu mở ngoặc thì đẩy vào stack
+			} else if (c == '(') {
+				stack.push(c);
+//				nếu gặp dấu đóng ngoặc thì đưa các phần tử ra cho đến khi gặp dấu đóng hoặc rỗng thì dừng
+			} else if (c == ')') {
+				while (!stack.isEmpty() && stack.peek() != '(') {
+					result += stack.pop();
+				}
+				stack.pop();// loại bỏ dấu mở ngoặc
 			}
+//			nếu là toán tử
 		}
 	}
 }
