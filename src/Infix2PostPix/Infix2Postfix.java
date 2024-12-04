@@ -36,26 +36,28 @@ public class Infix2Postfix {
 				}
 				checkPrevIsDigit = true;
 //				nếu gặp dấu mở ngoặc thì đẩy vào stack
-			} else if (c == '(') {
-				stack.push(c);
+			} else {
+				if (c == '(') {
+					stack.push(c);
 //				nếu gặp dấu đóng ngoặc thì đưa các phần tử ra cho đến khi gặp dấu đóng hoặc rỗng thì dừng
-			} else if (c == ')') {
-				while (!stack.isEmpty() && stack.peek() != '(') {
-					result += stack.pop();
+				} else if (c == ')') {
+					while (!stack.isEmpty() && stack.peek() != '(') {
+						result += stack.pop();
+					}
+					stack.pop();// loại bỏ dấu mở ngoặc
 				}
-				stack.pop();// loại bỏ dấu mở ngoặc
-			}
 //			nếu là toán tử
-			else {
-				while (!stack.isEmpty() && precendence(c) <= precendence(stack.peek())) {
-					result += (" " + stack.pop());
+				else {
+					while (!stack.isEmpty() && precendence(c) <= precendence(stack.peek())) {
+						result += (" " + stack.pop());
+					}
+					stack.push(c);
 				}
-				stack.push(c);
-			}
 //			gan false
-			checkPrevIsDigit = false;
+				checkPrevIsDigit = false;
 //đưa tất cả các toán tử còn lại của stack ra kết quả
 
+			}
 		}
 		while (!stack.isEmpty()) {
 			result += stack.pop();
