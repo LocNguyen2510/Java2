@@ -21,14 +21,41 @@ public class InfixtoPostfix {
 	public static String infixToPostfix(String exper) {
 		exper = exper.replace(" ", "");
 		String result = "";
-		Stack<Character> stack = new Stack<>();
+		Stack<Character> stack = new Stack<Character>();
 		boolean check = false;
 		for (int i = 0; i < exper.length(); i++) {
 			char c = exper.charAt(i);
-			if (!stack.isEmpty()) {
 
+			if (Character.isDigit(c)) {
+				if (check) {
+					result += c;
+				} else {
+					result += (" " + c);
+				}
+				check = true;
+			} else {
+				if (c == '(') {
+					stack.push(c);
+				} else if (c == ')') {
+					while (!stack.isEmpty() && stack.peek() != '(') {
+						result += stack.pop();
+					}
+					stack.pop();
+				} else {
+					while (!stack.isEmpty() && precendence(c) <= precendence(stack.peek())) {
+						result += (" " + stack.pop());
+					}
+					stack.push(c);
+				}
+				check = false;
 			}
+
 		}
+		while (!stack.isEmpty()) {
+			result += stack.pop();
+
+		}
+		return result;
 
 	}
 }
